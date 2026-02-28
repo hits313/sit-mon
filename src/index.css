@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ops-bg: #080B0F;
+  --color-ops-surface: #0D1117;
+  --color-ops-border: #1C2333;
+  --color-ops-alert: #E63946;
+  --color-ops-warning: #F4A261;
+  --color-ops-info: #48CAE4;
+  --color-ops-text-primary: #E8EDF2;
+  --color-ops-text-secondary: #6B7A8D;
+}
+
+body {
+  background-color: var(--color-ops-bg);
+  color: var(--color-ops-text-primary);
+  font-family: var(--font-body);
+  overflow: hidden; /* App-like feel */
+}
+
+/* Custom Scrollbar for the ops feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-ops-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ops-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ops-text-secondary);
+}
+
+/* Leaflet overrides for dark mode */
+.leaflet-container {
+  background: #080B0F !important;
+  font-family: var(--font-display) !important;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background: var(--color-ops-surface) !important;
+  color: var(--color-ops-text-primary) !important;
+  border: 1px solid var(--color-ops-border);
+  border-radius: 4px !important;
+}
+
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
